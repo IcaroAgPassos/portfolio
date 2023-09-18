@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+:root{
+    --font-menu-color: #f8f8f8;
+    --bg-menu: #303030;
+    --bg: #d1d1d1;
+    --font-body-color: #101010;
+}
+
+*{
+    font-family: 'Inclusive Sans', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body{
+    background: var(--bg);
+    color: var(--font-body-color);
+}
+
+.header-content{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 5rem;
+    background: var(--bg-menu);
+    display: flex;
+    justify-content: center;
+}
+
+.menu-content{
+    color: var(--font-menu-color);
+    width: 78%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-content{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 4rem;
+    cursor: pointer;
+    color: var(--font-menu-color);
+}
+
+.nav-links{
+    display: flex;
+    gap: 2.2rem;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.nav-links .menu-li{
+    color: var(--font-menu-color);
+}
+
+.main-content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-content{
+    display: flex;
+    width: 78%;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-presentation, .p-small{
+    font-family: 'Space Mono', monospace;
+    white-space: nowrap;
+    width: 40ch;
+    font-size: 1.7rem;
+    font-weight: 400;
+    border-right: .3rem solid transparent;
+    box-sizing: content-box;
+    animation: toWrite 3.5s steps(40),
+    blinking .4s alternate;
+    overflow: hidden;
+    animation-iteration-count: 1, 9;
+}
+
+.p-small{
+    width: 33ch;
+    font-size: 1.1rem;
+    animation: toWrite 3s steps(35),
+    blinking .4s infinite step-end alternate;
+}
+
+.img-perfil-content{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+    height: 20rem;
+    gap: 1.5rem;
+}
+
+.img-perfil-content::before, .img-perfil-content::after{
+    content: '';
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    opacity: 0;
+    background: var(--font-body-color);
+    z-index: -1;
+    box-shadow: .25rem .25rem .9rem#303030,
+                .35rem .35rem 1.2rem#303030;
+}
+
+.img-perfil-content::before{
+    animation: fadeIn 2s ease-in-out both 2s,
+               upDown 2s ease-in-out infinite;
+    top: -1rem;
+    left: -1rem;
+}
+
+.img-perfil-content::after{
+    bottom: 3rem;
+    right: -1rem;
+    animation: fadeIn 2.5s ease-in-out both 2s,
+               upDown 2s ease-in-out infinite .5s;
+}
+
+.img-perfil{
+    position: relative;
+    object-fit: cover;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 100%;
+    box-shadow: .25rem .25rem .9rem#303030;
+    animation: fadeIn 2s linear;
+    transition: .3s;
+}
+
+.img-perfil:hover{
+    transform: translateY(-1rem);
+}
+
+.social-media{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.social-media .icons-cdn{
+    font-size: 2.1rem;
+    cursor: pointer;
+    transition: scale .2s ease-in-out;
+    animation: fadeIn 2.5s ease-in-out both 1.5s;
+    color: var(--font-body-color);
+}
+
+.social-media .icons-cdn:hover{
+    scale: 1.08;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes toWrite{
+    from{
+        width: 0;
+    }
+
+    to{
+        width: calc(width);
+    }
+}
+
+@keyframes blinking{
+    50%{
+        border-color: #000;
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes upDown{
+    0%{
+        transform: translateY(.3rem);
+    }
+    50%{
+        transform: translateY(-.3rem);
+    }
+    100%{
+        transform: translateY(.3rem);
+    }
+}
+
