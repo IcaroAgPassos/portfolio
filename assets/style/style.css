@@ -8,6 +8,8 @@
     --bg-menu: #303030;
     --bg: #d1d1d1;
     --font-body-color: #101010;
+    --icon-color-linkedin: #0E76A8;
+    scroll-behavior: smooth;
 }
 
 *{
@@ -24,8 +26,12 @@ body{
     color: var(--font-body-color);
 }
 
+hr {
+    position: absolute;
+  }
+
 .header-content{
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 5rem;
@@ -66,11 +72,16 @@ body{
     align-items: center;
     flex-direction: column;
 }
-
 .section-content{
+    position: relative;
     display: flex;
     width: 78%;
-    height: calc(100vh - 5rem);
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation{
     justify-content: space-between;
     align-items: center;
 }
@@ -96,6 +107,27 @@ body{
     blinking .4s infinite step-end alternate;
 }
 
+.about-me{
+    flex-direction: row-reverse;
+}
+
+.p-about-me{
+    width: 70%;
+    font-size: 1.2rem;
+}
+
+.img-content-section{
+    mix-blend-mode: multiply;
+    width: 26rem;
+    animation: fadeIn 2s ease-in-out,
+                upDown 3.5s ease-in-out infinite;
+    transition: scale .5s;
+}
+
+.img-content-section:hover{
+    scale: 1.05;
+}
+
 .img-perfil-content{
     display: flex;
     flex-direction: column;
@@ -116,6 +148,7 @@ body{
     z-index: -1;
     box-shadow: .25rem .25rem .9rem#303030,
                 .35rem .35rem 1.2rem#303030;
+    filter: blur(.7rem);
 }
 
 .img-perfil-content::before{
@@ -152,21 +185,43 @@ body{
     justify-content: center;
     gap: 1rem;
     width: 100%;
+    animation: fadeIn 2.5s ease-in-out;
+    animation-iteration-count: 1;
 }
 
 .social-media .icons-cdn{
+    position: relative;
     font-size: 2.1rem;
     cursor: pointer;
     transition: scale .2s ease-in-out;
-    animation: fadeIn 2.5s ease-in-out both 1.5s;
     color: var(--font-body-color);
+}
+
+.social-media .icons-cdn:nth-child(1){
+    color: var(--icon-color-linkedin);
 }
 
 .social-media .icons-cdn:hover{
     scale: 1.08;
+    animation: climbIcon .8s linear alternate;
 }
 
 /* ANIMAÇÕES */
+
+@keyframes climbIcon{
+    25%{
+        rotate: 0deg;
+    }
+    50%{
+        rotate: 8deg;
+    }
+    75%{
+        rotate: -8deg;
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
 
 @keyframes toWrite{
     from{
@@ -204,4 +259,14 @@ body{
         transform: translateY(.3rem);
     }
 }
+/* WEBKIT SCROLL */
 
+::-webkit-scrollbar{
+    background: #d0d0d0;
+    width: .4rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--font-body-color);
+    border-radius: 2rem;
+}
