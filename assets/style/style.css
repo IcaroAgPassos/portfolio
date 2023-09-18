@@ -70,7 +70,7 @@ body{
 .section-content{
     display: flex;
     width: 78%;
-    height: 100vh;
+    height: calc(100vh - 5rem);
     justify-content: space-between;
     align-items: center;
 }
