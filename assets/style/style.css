@@ -26,18 +26,16 @@ body{
     color: var(--font-body-color);
 }
 
-hr {
-    position: absolute;
-  }
+/* MENU */
 
 .header-content{
     position: fixed;
-    top: 0;
     width: 100%;
     height: 5rem;
     background: var(--bg-menu);
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 
 .menu-content{
@@ -59,12 +57,34 @@ hr {
     display: flex;
     gap: 2.2rem;
     font-size: 1.15rem;
-    cursor: pointer;
 }
 
 .nav-links .menu-li{
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: .5rem 0;
     color: var(--font-menu-color);
+    cursor: pointer;
+    overflow: hidden;
 }
+
+.nav-links .menu-li::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.1rem;
+    background: var(--font-menu-color);
+    top: 80%;
+    left: -150%;
+    transition: left .3s;
+}
+
+.menu-li:hover::after, .menu-li:focus::after{
+    left: 0%;
+}
+
+/* main content */
 
 .main-content{
     width: 100%;
@@ -73,7 +93,6 @@ hr {
     flex-direction: column;
 }
 .section-content{
-    position: relative;
     display: flex;
     width: 78%;
     height: 100vh;
