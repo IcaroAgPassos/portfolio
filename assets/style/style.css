@@ -48,7 +48,7 @@ body{
 
 .logo-content{
     font-family: 'Ubuntu', sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     cursor: pointer;
     color: var(--font-menu-color);
 }
@@ -67,6 +67,7 @@ body{
     color: var(--font-menu-color);
     cursor: pointer;
     overflow: hidden;
+    outline: none;
 }
 
 .nav-links .menu-li::after{
@@ -95,21 +96,31 @@ body{
 .section-content{
     display: flex;
     width: 78%;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: space-between;
     align-items: center;
 }
+
+/* FIRST CONTENT */
 
 .presentation{
     justify-content: space-between;
     align-items: center;
 }
 
+.div-presentation{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .text-presentation, .p-small{
     font-family: 'Space Mono', monospace;
     white-space: nowrap;
     width: 40ch;
-    font-size: 1.7rem;
+    height: auto;
+    font-size: 1.8vw;
     font-weight: 400;
     border-right: .3rem solid transparent;
     box-sizing: content-box;
@@ -121,37 +132,58 @@ body{
 
 .p-small{
     width: 33ch;
-    font-size: 1.1rem;
+    font-size: 1.3vw;
     animation: toWrite 3s steps(35),
     blinking .4s infinite step-end alternate;
 }
 
-.about-me{
-    flex-direction: row-reverse;
+.img-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    flex: 10rem;
 }
 
-.p-about-me{
-    width: 70%;
-    font-size: 1.2rem;
-}
-
-.img-content-section{
+.img-presentation{
     mix-blend-mode: multiply;
-    width: 26rem;
+    width: 90%;
+    height: auto;
     animation: fadeIn 2s ease-in-out,
                 upDown 3.5s ease-in-out infinite;
     transition: scale .5s;
 }
 
-.img-content-section:hover{
+.img-presentation:hover{
     scale: 1.05;
+}
+
+/* SECOND CONTENT */
+
+.about-me{
+    flex-direction: row-reverse;
+    position: relative;
+    gap: 3rem;
+}
+
+.p-about-me{
+    padding: 2.2rem;
+    position: relative;
+    min-width: 30rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+    /* background: #d1d1d1; */
+    box-shadow: inset .05rem .05rem .9rem #8c8c8c,
+                inset -.3rem -.3rem .9rem #e5e5e5;
 }
 
 .img-perfil-content{
     display: flex;
     flex-direction: column;
     position: relative;
-    width: auto;
+    align-items: center;
+    width: 25rem;
     height: 20rem;
     gap: 1.5rem;
 }
@@ -162,7 +194,7 @@ body{
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
-    opacity: 0;
+    opacity: 1;
     background: var(--font-body-color);
     z-index: -1;
     box-shadow: .25rem .25rem .9rem#303030,
@@ -174,12 +206,12 @@ body{
     animation: fadeIn 2s ease-in-out both 2s,
                upDown 2s ease-in-out infinite;
     top: -1rem;
-    left: -1rem;
+    left: 1rem;
 }
 
 .img-perfil-content::after{
     bottom: 3rem;
-    right: -1rem;
+    right: 1rem;
     animation: fadeIn 2.5s ease-in-out both 2s,
                upDown 2s ease-in-out infinite .5s;
 }
@@ -192,7 +224,7 @@ body{
     border-radius: 100%;
     box-shadow: .25rem .25rem .9rem#303030;
     animation: fadeIn 2s linear;
-    transition: .3s;
+    transition: transform .3s;
 }
 
 .img-perfil:hover{
@@ -223,6 +255,90 @@ body{
 .social-media .icons-cdn:hover{
     scale: 1.08;
     animation: climbIcon .8s linear alternate;
+}
+
+/* THIRD CONTENT */
+
+.skills{
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+    background: #e9e9e9;
+    box-shadow: 0rem -.02rem 1rem #30303080;
+}
+
+.content-card-skills{
+    width: 78%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+
+}
+
+.cards-skills{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    align-items: center;
+    width: 12rem;
+    height: 18rem;
+    background: #e9e9e9;
+    border-radius: 1rem;
+    background: #e9e9e9;
+    box-shadow:  1rem 1rem 31px #b3b3b3,
+    -1rem -1rem 31px #ffffff;
+    transition: scale .2s ease-in-out, background .2s ease-in-out, color .2s ease-in-out;
+    flex: 12rem 0;
+}
+
+.cards-skills:hover, .cards-skills:focus-visible    {
+    scale: 1.12;
+}
+
+
+
+.cards-skills:hover:nth-child(1){
+    background: #EFD81D;
+}
+
+.cards-skills:hover:nth-child(2){
+    background: #F74D27;
+}
+
+.cards-skills:hover:nth-child(3){
+    background: #2862E9;
+    color: var(--font-menu-color);
+}
+
+.cards-skills:hover:nth-child(4){
+    background: #E96228;
+    color: var(--font-menu-color);
+}
+
+.cards-skills .icons-cdn{
+    font-size: 3.5rem;
+}
+
+.p-cards{
+    letter-spacing: .05rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.level-counter{
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00000010;  
 }
 
 /* ANIMAÇÕES */
