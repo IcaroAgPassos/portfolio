@@ -96,6 +96,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 1.8vw;
 }
 .section-content{
     display: flex;
@@ -110,6 +111,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 4rem;
 }
 
 /* FIRST CONTENT */
@@ -126,12 +128,11 @@ body{
     overflow: hidden;
 }
 
-.text-presentation, .p-small{
+.title-presentation, .p-small{
     font-family: 'Space Mono', monospace;
     white-space: nowrap;
     width: 40ch;
     height: auto;
-    font-size: 1.8vw;
     font-weight: 400;
     border-right: .3rem solid transparent;
     box-sizing: content-box;
@@ -141,9 +142,12 @@ body{
     animation-iteration-count: 1, 9;
 }
 
+.title-presentation{
+    font-size: 1.6rem;
+}
 .p-small{
     width: 33ch;
-    font-size: 1.3vw;
+    font-size: 1.15rem;
     animation: toWrite 3s steps(35),
     blinking .4s infinite step-end alternate;
 }
@@ -181,7 +185,7 @@ body{
 .p-about-me{
     padding: 2.2rem;
     position: relative;
-    min-width: 30rem;
+    max-width: 55rem;
     font-size: 1.1rem;
     border-radius: 1rem;
     /* background: #d1d1d1; */
@@ -352,7 +356,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #00000010;  
+    background: #00000010;
+    font-size: 1.15rem;  
 }
 
 /* FOOTER */
@@ -375,7 +380,7 @@ body{
     max-width: 1440px;
     justify-content: center;
     align-items: center;
-
+    font-size: 1.1rem;
 }
 
 .icons-container{
